@@ -1,14 +1,9 @@
 github_users:
-  - torvalds
-  - alshedivat
+  # Add GitHub usernames to display their profile cards
+  # - yourusername
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  # Add specific repositories to highlight
+  # - yourusername/your-repo-name

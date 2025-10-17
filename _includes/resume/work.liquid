@@ -45,6 +45,16 @@
               </li>
             {% endfor %}
           </ul>
+          {% if content.technologies %}
+            <div class="ml-1 ml-md-4 mt-2">
+              <p class="mb-1" style="font-size: 0.9rem; font-weight: 500;">Technologies:</p>
+              <div class="tech-tags">
+                {% for tech in content.technologies %}
+                  <span class="badge badge-pill badge-primary" style="margin-right: 5px; margin-bottom: 5px; font-size: 0.85rem;">{{ tech }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
         </div>
       </div>
     </li>
