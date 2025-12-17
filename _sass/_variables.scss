@@ -24,6 +24,18 @@ $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
 
+// Material Design colors
+$material-indigo: #3f51b5 !default;
+$material-indigo-dark: #303f9f !default;
+$material-indigo-light: #5c6bc0 !default;
+$material-teal: #00bcd4 !default;
+$material-teal-light: #26c6da !default;
+$material-teal-dark: #0097a7 !default;
+$material-deep-orange: #ff5722 !default;
+$material-amber: #ffc107 !default;
+$material-deep-purple: #673ab7 !default;
+$material-deep-purple-light: #7e57c2 !default;
+
 $grey-color: #828282 !default;
 $grey-color-light: color.adjust($grey-color, $lightness: 40%);
 $grey-color-dark: #1c1c1d;
@@ -34,8 +46,8 @@ $black-color: #000000 !default;
 
 // Theme colors
 
-$code-bg-color-light: rgba($purple-color, 0.05);
-$code-bg-color-dark: #2c3237 !default;
+$code-bg-color-light: #fafafa;
+$code-bg-color-dark: #263238;
 
 // Font awesome location
 $fa-font-path: "../webfonts";

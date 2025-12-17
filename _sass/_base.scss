@@ -24,6 +24,7 @@ hr {
 }
 
 table {
+
   td,
   th {
     font-size: 1rem;
@@ -51,6 +52,7 @@ table.table a {
 
 .table-dark {
   background-color: transparent;
+
   &.table-bordered {
     border: 1px solid var(--global-divider-color) !important;
   }
@@ -61,7 +63,7 @@ blockquote {
   border-left: 5px solid var(--global-theme-color);
   margin: 1.5em 0;
   padding: 1em;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   p {
     margin-bottom: 0;
@@ -135,10 +137,11 @@ blockquote {
 // Checklist
 
 ul.task-list {
-  list-style-type: none; /* Remove bullets from all levels */
+  list-style-type: none;
+  /* Remove bullets from all levels */
 }
 
-ul.task-list > li ul {
+ul.task-list>li ul {
   /* Nested lists within .task-list */
   padding-inline-start: 1.5rem;
 }
@@ -295,7 +298,7 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
-  .navbar-nav .nav-item.active > .nav-link {
+  .navbar-nav .nav-item.active>.nav-link {
     background-color: inherit;
     font-weight: bolder;
     color: var(--global-theme-color);
@@ -455,7 +458,7 @@ ul.task-list input[type="checkbox"] {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.wechat-modal > img {
+.wechat-modal>img {
   display: block;
   position: relative;
   top: 50%;
@@ -466,7 +469,7 @@ ul.task-list input[type="checkbox"] {
 }
 
 @media only screen and (max-width: 400px) {
-  .wechat-modal > img {
+  .wechat-modal>img {
     width: 100%;
   }
 }
@@ -729,14 +732,28 @@ footer.sticky-bottom {
 
   ol.bibliography {
     list-style: none;
-    padding: 0;
+    padding-left: 0;
     margin-top: 0;
+    counter-reset: bib-item;
 
     li {
       margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      position: relative;
 
-      .preview {
+      &::before {
+        counter-increment: bib-item;
+        content: counter(bib-item) ".";
+        flex: 0 0 auto;
+        min-width: 1.5rem;
+        text-align: right;
+        color: var(--global-text-color);
+        font-weight: normal;
       }
+
+      .preview {}
 
       .abbr {
         margin-bottom: 0.5rem;
@@ -776,12 +793,12 @@ footer.sticky-bottom {
           }
         }
 
-        > em {
+        >em {
           border-bottom: 1px solid;
           font-style: normal;
         }
 
-        > span.more-authors {
+        >span.more-authors {
           color: var(--global-text-color-light);
           border-bottom: 1px dashed var(--global-text-color-light);
           cursor: pointer;
@@ -808,6 +825,7 @@ footer.sticky-bottom {
             border-color: var(--global-theme-color);
           }
         }
+
         a.award.btn {
           border-color: var(--global-highlight-color);
         }
@@ -815,6 +833,7 @@ footer.sticky-bottom {
 
       .badges {
         padding-bottom: 0.5rem;
+
         span {
           display: inline-block;
           color: $black-color;
@@ -868,12 +887,52 @@ footer.sticky-bottom {
         border-color: var(--global-text-color);
       }
     }
+
     div.award.hidden {
       border: dashed 1px var(--global-bg-color);
     }
+
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
     }
+  }
+
+  /* Fix Bootstrap row/col behavior inside list for blog posts */
+  .bibliography .row {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1;
+    /* Allow row to take remaining space */
+  }
+
+  .bibliography .col-sm-2 {
+    flex: 0 0 auto;
+    width: auto;
+    /* Remove min-width to allow collapsing */
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .bibliography .col-sm-8 {
+    flex: 1;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .bibliography abbr.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
   }
 }
 
@@ -885,8 +944,10 @@ figure.highlight {
 pre {
   color: var(--global-theme-color);
   background-color: var(--global-code-bg-color);
-  border-radius: 6px;
-  padding: 6px 12px;
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   pre,
   code {
@@ -900,8 +961,9 @@ pre {
 code {
   color: var(--global-theme-color);
   background-color: var(--global-code-bg-color);
-  border-radius: 3px;
-  padding: 3px 3px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9em;
 }
 
 // Transitioning Themes
@@ -1070,11 +1132,11 @@ progress::-moz-progress-bar {
 nav[data-toggle="toc"] {
   top: 5rem;
 
-  .nav .nav > li > a {
+  .nav .nav>li>a {
     font-size: 0.75rem;
   }
 
-  .nav > li > a {
+  .nav>li>a {
     color: var(--global-text-color);
     font-size: 0.75rem;
 
@@ -1098,6 +1160,7 @@ nav[data-toggle="toc"] {
 
 /* small screens */
 @media (max-width: 576px) {
+
   /* override stickyness so that the navigation does not follow scrolling */
   nav[data-toggle="toc"] {
     visibility: hidden;
@@ -1170,7 +1233,7 @@ swiper-container {
     border-bottom: 2px solid var(--global-text-color);
   }
 
-  .ps-algorithm.with-caption > .ps-line:first-child {
+  .ps-algorithm.with-caption>.ps-line:first-child {
     border-bottom: 2px solid var(--global-text-color);
   }
 }
@@ -1292,6 +1355,7 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 @media (max-width: 575px) {
+
   .newsletter-form-input,
   .newsletter-form-button,
   .newsletter-loading-button,
@@ -1299,6 +1363,7 @@ ninja-keys::part(ninja-input-wrapper) {
   .newsletter-error {
     font-size: 16px !important;
   }
+
   .newsletter-form-container {
     margin-right: 20px;
     margin-left: 20px;
@@ -1321,6 +1386,7 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 .bs-popover-top {
+
   // arrow fill color
   .arrow::after {
     border-top-color: var(--global-bg-color);
@@ -1333,6 +1399,7 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 .bs-popover-bottom {
+
   // arrow fill color
   .arrow::after {
     border-bottom-color: var(--global-bg-color);
@@ -1353,7 +1420,8 @@ ninja-keys::part(ninja-input-wrapper) {
 figure.cover {
   display: inline-block;
   text-align: center;
-  margin: 0.5rem; /* adjust as needed */
+  margin: 0.5rem;
+  /* adjust as needed */
 
   img {
     vertical-align: bottom;

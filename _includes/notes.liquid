@@ -1,0 +1,13 @@
+<div class="col">
+  <a href="{{ note.url | relative_url }}">
+    <div class="card h-100 hoverable">
+      <div class="card-body">
+        <h2 class="card-title">{{ note.title }}</h2>
+        <p class="card-text">{{ note.description }}</p>
+        <div class="row ml-1 mr-1 p-0">
+          <p class="card-text"><small class="text-muted">{{ note.date | date: "%b %d, %Y" }}</small></p>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

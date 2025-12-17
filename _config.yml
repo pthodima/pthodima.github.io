@@ -84,8 +84,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Technical Notes & Blog # blog_name will be displayed in your blog page
-blog_description: Technical blog posts, research notes, and tutorials
+blog_name: Pavan's Notes & Blog # blog_name will be displayed in your blog page
+blog_description: Pavan's blog, research notes, and tutorials
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -143,6 +143,8 @@ collections:
       layout: post
     output: true
   projects:
+    output: true
+  notes:
     output: true
 
 # -----------------------------------------------------------------------------
@@ -256,7 +258,7 @@ scholar:
   last_name: [Thodima]
   first_name: [Pavan, P., Pavan C.]
 
-  style: apa
+  style: ieee
   locale: en
 
   source: /_bibliography/
