@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
+        },{id: "nav-notes",
+          title: "notes",
+          description: "A collection of my technical notes organized by subject.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/notes/";
+          },
         },{id: "nav-projects",
           title: "projects",
           description: "A collection of my academic and personal projects in AI, ML, and systems.",
@@ -41,18 +48,12 @@ ninja.data = [{
             window.location.href = "/blog/2025/welcome-post/";
           
         },
-      },{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
-          description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
-          description: "",
-          section: "News",},{id: "projects-project-title-here",
+      },{id: "notes-the-art-of-makefiles",
+          title: 'The Art of Makefiles',
+          description: "A comprehensive guide to understanding, writing, and mastering Makefiles.",
+          section: "Notes",handler: () => {
+              window.location.href = "/notes/operating-systems/makefiles/";
+            },},{id: "projects-project-title-here",
           title: 'Project Title Here',
           description: "Brief one-line description of your project",
           section: "Projects",handler: () => {
