@@ -53,11 +53,6 @@ ninja.data = [{
           description: "A comprehensive guide to understanding, writing, and mastering Makefiles.",
           section: "Notes",handler: () => {
               window.location.href = "/notes/operating-systems/makefiles/";
-            },},{id: "projects-project-title-here",
-          title: 'Project Title Here',
-          description: "Brief one-line description of your project",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/TEMPLATE_PROJECT/";
             },},{
         id: 'social-email',
         title: 'email',
