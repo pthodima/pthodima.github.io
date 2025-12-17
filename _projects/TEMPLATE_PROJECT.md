@@ -2,10 +2,10 @@
 layout: page
 title: Project Title Here
 description: Brief one-line description of your project
-img: assets/img/project-preview.jpg  # Optional: Add a preview image
-importance: 1  # Lower numbers appear first (1, 2, 3, ...)
-category: research  # Options: research, academic, personal
-github: https://github.com/pthodima/your-project  # Optional: GitHub link
+img: assets/img/project-preview.jpg # Optional: Add a preview image
+importance: 1 # Lower numbers appear first (1, 2, 3, ...)
+category: research # Options: research, academic, personal
+github: https://github.com/pthodima/your-project # Optional: GitHub link
 ---
 
 ## Overview
@@ -21,6 +21,7 @@ Provide a detailed description of your project. What problem does it solve? What
 ## Technical Details
 
 ### Technologies Used
+
 - **Languages:** Python, C++, etc.
 - **Frameworks/Libraries:** PyTorch, TensorFlow, OpenCV, etc.
 - **Tools:** Docker, Git, etc.

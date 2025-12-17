@@ -13,6 +13,7 @@ category: operating-systems
 At its heart, `make` is a build automation tool that automatically builds executable programs and libraries from source code by reading files called **Makefiles**.
 
 Think of a Makefile as a **Dependency Graph** (specifically, a Directed Acyclic Graph or DAG). You tell `make`:
+
 1.  **What** you want to build (the target).
 2.  **What** files are needed to build it (the dependencies).
 3.  **How** to build it (the recipe).
@@ -29,10 +30,10 @@ target: prerequisites ...
 	...
 ```
 
-*   **Target**: The name of the file you want to make (e.g., `main.o`, `app`).
-*   **Prerequisites**: The files that must exist *before* the target can be built.
-*   **Recipe**: The shell commands to create the target.
-    *   **CRITICAL**: You **MUST** indent recipes with a **TAB** character. Spaces will cause a syntax error.
+- **Target**: The name of the file you want to make (e.g., `main.o`, `app`).
+- **Prerequisites**: The files that must exist _before_ the target can be built.
+- **Recipe**: The shell commands to create the target.
+  - **CRITICAL**: You **MUST** indent recipes with a **TAB** character. Spaces will cause a syntax error.
 
 ### Example
 
@@ -46,7 +47,8 @@ hello: main.c
 Variables in Makefiles (often called macros) come in two main flavors. Understanding the difference is crucial.
 
 ### 3.1 Recursive Expansion (`=`)
-The variable is expanded *every time* it is used.
+
+The variable is expanded _every time_ it is used.
 
 ```makefile
 FOO = $(BAR)
@@ -55,7 +57,8 @@ BAR = hud
 ```
 
 ### 3.2 Simply Expanded (`:=`)
-The variable is potentially expanded *once* when defined, and its value is fixed. **Use this by default** for predictable behavior, like in shell scripts.
+
+The variable is potentially expanded _once_ when defined, and its value is fixed. **Use this by default** for predictable behavior, like in shell scripts.
 
 ```makefile
 CC := gcc
@@ -63,6 +66,7 @@ CFLAGS := -Wall -O2
 ```
 
 ### 3.3 Conditional Assignment (`?=`)
+
 Assigns a value only if the variable is not already defined (e.g., by an environment variable).
 
 ```makefile
@@ -76,6 +80,7 @@ It makes your Makefile flexible and environment-aware. A user can compile with a
 If they don't provide `CC`, it defaults to `gcc`.
 
 ### 3.4 Append (`+=`)
+
 Adds text to an existing variable.
 
 ```makefile
@@ -87,14 +92,15 @@ CFLAGS += -g  # CFLAGS is now "-Wall -g"
 
 These are special variables set by `make` for each rule. They are the key to writing concise rules.
 
-| Variable | Description |
-| :--- | :--- |
-| `$@` | The file name of the **target** of the rule. |
-| `$<` | The name of the **first** prerequisite. |
-| `$^` | The names of **all** the prerequisites, with spaces between them. |
-| `$*` | The stem with which an implicit rule matches. |
+| Variable | Description                                                       |
+| :------- | :---------------------------------------------------------------- |
+| `$@`     | The file name of the **target** of the rule.                      |
+| `$<`     | The name of the **first** prerequisite.                           |
+| `$^`     | The names of **all** the prerequisites, with spaces between them. |
+| `$*`     | The stem with which an implicit rule matches.                     |
 
 ### Usage Example
+
 ```makefile
 # Instead of: gcc -c main.c -o main.o
 main.o: main.c
@@ -114,7 +120,7 @@ clean:
 
 ## 6. Pattern Rules [(docs)](https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html)
 
-Don't write a rule for every single `.c` file. Use **Pattern Rules** to teach `make` how to build *any* `.o` file from a `.c` file.
+Don't write a rule for every single `.c` file. Use **Pattern Rules** to teach `make` how to build _any_ `.o` file from a `.c` file.
 
 ```makefile
 # "To build any .o file from a .c file..."
@@ -126,21 +132,23 @@ Don't write a rule for every single `.c` file. Use **Pattern Rules** to teach `m
 
 `make` has powerful built-in functions for text processing.
 
-*   **`wildcard`**: Get a list of files matching a pattern.
-    ```makefile
-    SRCS := $(wildcard *.c)  # explicit list: main.c utils.c
-    ```
+- **`wildcard`**: Get a list of files matching a pattern.
 
-*   **`patsubst`**: Replace text matching a pattern.
-    ```makefile
-    # Convert list of .c files to .o files
-    OBJS := $(patsubst %.c,%.o,$(SRCS))
-    ```
+  ```makefile
+  SRCS := $(wildcard *.c)  # explicit list: main.c utils.c
+  ```
 
-*   **`shell`**: Run a shell command and capture output.
-    ```makefile
-    CURRENT_DATE := $(shell date +%Y-%m-%d)
-    ```
+- **`patsubst`**: Replace text matching a pattern.
+
+  ```makefile
+  # Convert list of .c files to .o files
+  OBJS := $(patsubst %.c,%.o,$(SRCS))
+  ```
+
+- **`shell`**: Run a shell command and capture output.
+  ```makefile
+  CURRENT_DATE := $(shell date +%Y-%m-%d)
+  ```
 
 ## 8. Putting it All Together: A Pro Makefile
 
@@ -177,6 +185,6 @@ clean:
 
 ## 9. References & Further Reading
 
-*   [GNU Make Manual](https://www.gnu.org/software/make/manual/make.html) - The official bible.
-*   [Makefile Tutorial](https://makefiletutorial.com/) - A friendly, example-driven introduction.
-*   [A Trivial Makefile Tutorial](https://cs.colby.edu/maxwell/courses/tutorials/maketutor/) - Short and sweet.
+- [GNU Make Manual](https://www.gnu.org/software/make/manual/make.html) - The official bible.
+- [Makefile Tutorial](https://makefiletutorial.com/) - A friendly, example-driven introduction.
+- [A Trivial Makefile Tutorial](https://cs.colby.edu/maxwell/courses/tutorials/maketutor/) - Short and sweet.

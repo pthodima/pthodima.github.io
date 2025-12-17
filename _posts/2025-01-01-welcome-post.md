@@ -31,4 +31,4 @@ Stay tuned for more content!
 
 ---
 
-*This is a template post. Delete or modify this file at `_posts/2025-01-01-welcome-post.md`*
+_This is a template post. Delete or modify this file at `_posts/2025-01-01-welcome-post.md`_

@@ -152,49 +152,19 @@
       "name": "MLOps & Cloud",
       "level": "",
       "icon": "fa-solid fa-cloud",
-      "keywords": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "MLflow",
-        "Ray",
-        "Git",
-        "CI/CD",
-        "Linux"
-      ]
+      "keywords": ["AWS", "Docker", "Kubernetes", "MLflow", "Ray", "Git", "CI/CD", "Linux"]
     },
     {
       "name": "Languages & Data",
       "level": "",
       "icon": "fa-solid fa-code",
-      "keywords": [
-        "Python",
-        "C++",
-        "CUDA",
-        "Java",
-        "Javascript",
-        "TypeScript",
-        "SQL",
-        "Spark",
-        "Kafka",
-        "Redis",
-        "MongoDB"
-      ]
+      "keywords": ["Python", "C++", "CUDA", "Java", "Javascript", "TypeScript", "SQL", "Spark", "Kafka", "Redis", "MongoDB"]
     },
     {
       "name": "Development Frameworks",
       "level": "",
       "icon": "fa-solid fa-laptop-code",
-      "keywords": [
-        "Angular",
-        "Springboot",
-        "Flask",
-        "Django",
-        "FastAPI",
-        "Flutter",
-        "Firebase",
-        "Android Studio"
-      ]
+      "keywords": ["Angular", "Springboot", "Flask", "Django", "FastAPI", "Flutter", "Firebase", "Android Studio"]
     }
   ],
   "publications": [
@@ -247,9 +217,7 @@
     {
       "name": "Evolution of Semantics in Diffusion Models",
       "summary": "",
-      "highlights": [
-        "Analyzing the evolution of semantic features during the diffusion denoising process"
-      ],
+      "highlights": ["Analyzing the evolution of semantic features during the diffusion denoising process"],
       "startDate": "2025-11",
       "endDate": "Present"
     },
@@ -295,13 +263,7 @@
     {
       "name": "Research Interests",
       "icon": "fa-solid fa-microscope",
-      "keywords": [
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Computer Vision",
-        "Game Theory",
-        "Computer Systems"
-      ]
+      "keywords": ["Artificial Intelligence", "Machine Learning", "Computer Vision", "Game Theory", "Computer Systems"]
     }
   ],
   "references": []

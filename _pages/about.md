@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /
 subtitle: MS Computer Science @ <a href='https://www.wisc.edu/'>UW-Madison</a>
-nav: false  # Don't show in navbar since it's the homepage
+nav: false # Don't show in navbar since it's the homepage
 
 profile:
   align: right
@@ -26,7 +26,6 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
-
 
 Hi! I'm Pavan Thodima, a Master's student in Computer Science at the University of Wisconsin-Madison. I'm currently interested in **Artificial Intelligence**, **Machine Learning**, **Computer Vision**, **Game Theory**, and **Computer Systems**.
 
