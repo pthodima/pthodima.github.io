@@ -198,7 +198,7 @@ plugins:
   - jekyll-imagemagick
   - jekyll-jupyter-notebook
   - jekyll-link-attributes
-  - jekyll-minifier
+  # - jekyll-minifier # Disabled due to build hang
   - jekyll-paginate-v2
   - jekyll-regex-replace
   - jekyll/scholar

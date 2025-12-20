@@ -1,13 +1,12 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: MS Computer Science @ <a href='https://www.wisc.edu/'>UW-Madison</a>
 nav: false # Don't show in navbar since it's the homepage
 
 profile:
   align: right
-  image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>University of Wisconsin</p>

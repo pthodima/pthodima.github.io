@@ -1,6 +1,6 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 description: A collection of my academic and personal projects in AI, ML, and systems.
 nav: true

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: notes
+title: Notes
 permalink: /notes/
 description: A collection of my technical notes organized by subject.
 nav: true
