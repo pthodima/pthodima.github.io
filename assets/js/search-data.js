@@ -4,51 +4,40 @@ const ninja = document.querySelector('ninja-keys');
 // add the home and posts menu items
 ninja.data = [{
     id: "nav-about",
-    title: "about",
+    title: "About",
     section: "Navigation",
     handler: () => {
       window.location.href = "/";
     },
   },{id: "nav-blog",
-          title: "blog",
+          title: "Blog",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
           },
         },{id: "nav-cv",
-          title: "cv",
+          title: "CV",
           description: "Download my full CV or view the details below.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
           },
         },{id: "nav-notes",
-          title: "notes",
+          title: "Notes",
           description: "A collection of my technical notes organized by subject.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/notes/";
           },
         },{id: "nav-projects",
-          title: "projects",
+          title: "Projects",
           description: "A collection of my academic and personal projects in AI, ML, and systems.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "post-welcome-to-my-technical-blog",
-        
-          title: "Welcome to My Technical Blog",
-        
-        description: "An introduction to this blog and what to expect",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/welcome-post/";
-          
-        },
-      },{id: "notes-the-art-of-makefiles",
+        },{id: "notes-the-art-of-makefiles",
           title: 'The Art of Makefiles',
           description: "A comprehensive guide to understanding, writing, and mastering Makefiles.",
           section: "Notes",handler: () => {
