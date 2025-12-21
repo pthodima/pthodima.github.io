@@ -5,12 +5,12 @@ permalink: /
 subtitle: MS Computer Science @ <a href='https://www.wisc.edu/'>UW-Madison</a>
 nav: false # Don't show in navbar since it's the homepage
 
-profile:
-  align: right
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>University of Wisconsin</p>
-    <p>Madison, Wisconsin</p>
+# profile:
+#   align: right
+#   image_circular: false # crops the image to make it circular
+#   more_info: >
+#     <p>University of Wisconsin-Madison</p>
+#     <p>Madison, Wisconsin</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
