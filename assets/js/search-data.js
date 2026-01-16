@@ -42,6 +42,36 @@ ninja.data = [{
           description: "A comprehensive guide to understanding, writing, and mastering Makefiles.",
           section: "Notes",handler: () => {
               window.location.href = "/notes/operating-systems/makefiles/";
+            },},{id: "projects-anchor-free-object-detection-fcos",
+          title: 'Anchor-Free Object Detection (FCOS)',
+          description: "An end-to-end one-stage object detector implementation achieving 45 FPS on A100 GPUs.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_fcos_detection/";
+            },},{id: "projects-deep-learning-framework-in-c-amp-cuda",
+          title: 'Deep Learning Framework in C++ &amp;amp; CUDA',
+          description: "A lightweight, device-agnostic deep learning framework architected from scratch.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_cpp_framework/";
+            },},{id: "projects-conditional-diffusion-image-generation",
+          title: 'Conditional Diffusion Image Generation',
+          description: "A conditional DDPM and latent diffusion model for high-quality image synthesis.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_diffusion_gen/";
+            },},{id: "projects-evolution-of-semantics-in-diffusion-models",
+          title: 'Evolution of Semantics in Diffusion Models',
+          description: "Ongoing research analyzing semantic feature evolution during diffusion denoising.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_semantics_diffusion/";
+            },},{id: "projects-hand-sign-recognition",
+          title: 'Hand Sign Recognition',
+          description: "A computer vision system for real-time hand sign classification.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_hand_sign/";
+            },},{id: "projects-sparks-of-cooperative-reasoning",
+          title: 'Sparks of Cooperative Reasoning',
+          description: "Evaluating LLMs as strategic agents in the game of Hanabi.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/6_coop_reasoning/";
             },},{
         id: 'social-email',
         title: 'email',
