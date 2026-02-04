@@ -5,7 +5,7 @@ permalink: /projects/
 description: A collection of my academic and personal projects in AI, ML, and systems.
 nav: true
 nav_order: 3
-display_categories: [research, academic, personal]
+display_categories: [research, academic, personal, graphics]
 horizontal: false
 ---
 

@@ -7,7 +7,7 @@ nav: false # Don't show in navbar since it's the homepage
 
 profile:
   align: right
-  image: prof_pic.jpg # assuming you have a profile picture
+  image: prof_pic.png # assuming you have a profile picture
   image_circular: false # crops the image to make it circular
   address: >
     <p>University of Wisconsin-Madison</p>
@@ -32,7 +32,7 @@ Hi, I'm Pavan. I am an **MS Computer Science student at UW-Madison** and a forme
 I bridge the gap between **theoretical AI** and **scalable production systems**. With **3 years of industry experience** architecting financial systems and current research in **Computer Vision**, **Game Theory**, and **Generative AI**, I build machine learning solutions that are both rigorous and deployable.
 
 ### 🚀 **Open to Opportunities**
-**I am currently seeking Software Engineering and Machine Learning Engineering internships for Summer 2026.**
+**I am currently seeking Software Engineering and AI/ML Engineering internships for Summer 2026.**
 
 <hr style="clear:both;">
 
