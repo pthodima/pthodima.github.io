@@ -8,7 +8,7 @@
 const canvas = /** @type {HTMLCanvasElement} */ (document.getElementById("fireworksCanvas"));
 /** @type {CanvasRenderingContext2D} */
 const ctx = /** @type {CanvasRenderingContext2D} */ canvas.getContext("2d");
-let box = /** @type {DOMRect} */ canvas.getBoundingClientRect();
+
 
 /** @type {Array<{x: number, y: number, age: number, vx: number, vy: number, color: {h: number, s: number, l: number}}>} */
 let fireworks = [];
@@ -37,12 +37,41 @@ let particle_history_length = 40;
 let stars = [];
 let num_stars = 100;
 
+// Responsive canvas resize function
+function resizeCanvas() {
+    // Get the container's width (or window width for full width)
+    const container = canvas.parentElement;
+    const displayWidth = container ? container.clientWidth : window.innerWidth;
+    // Set a max width (like CSS)
+    const maxWidth = 800;
+    const width = Math.min(displayWidth, maxWidth);
+    // Maintain aspect ratio (4:3)
+    const aspect = 600 / 800;
+    const height = Math.round(width * aspect);
+    // For crispness on high-DPI screens
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transform
+    ctx.scale(dpr, dpr);
+    // Recreate stars to fit new size
+    createStars();
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
 function createStars() {
     stars = [];
+    // Use CSS pixel size for star positions
+    const width = parseFloat(canvas.style.width) || 800;
+    const height = parseFloat(canvas.style.height) || 600;
     for (let i = 0; i < num_stars; i++) {
         stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
+            x: Math.random() * width,
+            y: Math.random() * height,
             size: Math.random() * 2,
             blinkSpeed: 0.001 + Math.random() * 0.003,
             offset: Math.random() * Math.PI * 2,
@@ -63,8 +92,11 @@ function generateRandomColor() {
 
 // On mouse click, create a firework at random position at the bottom of the canvas, that moves towards the clicked position, explodes when it reaches it.
 function createFirework(/** @type {number} */ mx, /** @type {number} */ my) {
-    const startX = Math.random() * canvas.width;
-    const startY = canvas.height;
+    // Use CSS pixel size for logic
+    const width = parseFloat(canvas.style.width) || 800;
+    const height = parseFloat(canvas.style.height) || 600;
+    const startX = Math.random() * width;
+    const startY = height;
 
     const dx = mx - startX;
     const dy = my - startY;
@@ -82,14 +114,12 @@ function createFirework(/** @type {number} */ mx, /** @type {number} */ my) {
 }
 
 canvas.onclick = function (/** @type {MouseEvent} */ event) {
-    // Use offsetX/Y which are relative to the padding edge (content box), automatically handling borders.
-    // Scale against clientWidth/Height to match the internal canvas resolution.
-    const scaleX = canvas.width / canvas.clientWidth;
-    const scaleY = canvas.height / canvas.clientHeight;
-
-    const mx = event.offsetX * scaleX;
-    const my = event.offsetY * scaleY;
-
+    // Use offsetX/Y which are relative to the canvas CSS size
+    const rect = canvas.getBoundingClientRect();
+    const width = parseFloat(canvas.style.width) || 800;
+    const height = parseFloat(canvas.style.height) || 600;
+    const mx = ((event.clientX - rect.left) / rect.width) * width;
+    const my = ((event.clientY - rect.top) / rect.height) * height;
     createFirework(mx, my);
 };
 
@@ -100,15 +130,15 @@ function animateFireworks(/** @type {DOMHighResTimeStamp} */ timestamp) {
     const deltatime = timestamp - lasttime;
     lasttime = timestamp;
 
+    // Use CSS pixel size for logic
+    const width = parseFloat(canvas.style.width) || 800;
+    const height = parseFloat(canvas.style.height) || 600;
+
     // update positions
     fireworks.forEach(function (firework) {
         firework.x += firework.vx * deltatime;
-        // v_new = v + a*dt
-        // y_new = y + v*dt + 0.5*a*dt^2
-        // We use the current velocity 'firework.vy' for the time step
         firework.y += firework.vy * deltatime + 0.5 * gravity * deltatime * deltatime;
         firework.vy += gravity * deltatime;
-
         firework.age += deltatime;
     });
 
@@ -173,11 +203,10 @@ function animateFireworks(/** @type {DOMHighResTimeStamp} */ timestamp) {
 
     // Draw background
     ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, width, height);
 
     // draw stars
     ctx.fillStyle = "white";
-    // console.log(stars)
     stars.forEach((star) => {
         const alpha = 0.4 + 0.6 * Math.sin(timestamp * star.blinkSpeed + star.offset);
         ctx.globalAlpha = Math.max(0, alpha);
@@ -217,22 +246,19 @@ function animateFireworks(/** @type {DOMHighResTimeStamp} */ timestamp) {
         }
     })
 
-    // request next frame if there are still fireworks or particles
-    // if (fireworks.length > 0 || particles.length > 0)
     window.requestAnimationFrame(animateFireworks);
 
     // Chance for random fireworks
     if (Math.random() < firework_spawn_prob) {
-
         createFirework(
-            Math.random() * canvas.width,
-            Math.random() * canvas.height / 2
+            Math.random() * width,
+            Math.random() * height / 2
         );
-    };
-    // else lasttime = undefined;
+    }
 }
 
-createStars();
+
+// Stars will be created in resizeCanvas
 window.requestAnimationFrame(animateFireworks);
 
 // Setup UI controls
