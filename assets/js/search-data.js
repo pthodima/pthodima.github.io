@@ -72,6 +72,11 @@ ninja.data = [{
           description: "Evaluating LLMs as strategic agents in the game of Hanabi.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_coop_reasoning/";
+            },},{id: "projects-fireworks",
+          title: 'Fireworks',
+          description: "A simple fireworks simulation.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/graphics/fireworks/";
             },},{
         id: 'social-email',
         title: 'email',
